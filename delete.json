@@ -1,0 +1,8 @@
+{
+    "Data Object ID": "#data-object-id.ID#",
+    "Data Object ID: ": "#data-object-id.id#",
+    "Data Object Name: ": "#data-object-id.name#",
+    "Data Layer ID: ": "#data-layer-id#",
+    "Data Layer Name": "#data-layer-id.name#", 
+    "Alert status: ": "#data-object-id.ALERT_CONTENTS.status#"
+  }

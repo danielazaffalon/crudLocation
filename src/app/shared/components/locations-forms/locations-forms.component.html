@@ -1,0 +1,11 @@
+<h2>New Location</h2>
+<form [formGroup]="locationsForm">
+    <div>
+        Name: <input matInput typer="text" formControlName="name"><br>
+        Description: <input typer="text" formControlName="description"><br>
+        Lat: <input typer="number" formControlName="lat"><br>
+        Lon: <input typer="number" formControlName="lon"><br>
+        Visible: <input type="checkbox" formControlName="visible"><br>
+        <button mat-raised-button color="primary" (click)=outputLocation()>{{action}}</button>
+    </div>
+</form>

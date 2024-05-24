@@ -1,0 +1,14 @@
+<app-header [title]="title"></app-header>
+<button mat-raised-button color="primary" [routerLink]="['/aboutus']"><mat-icon>bookmark</mat-icon>About Us</button>
+<h2>Locations</h2>
+
+<div>
+    <ul>
+        <li *ngFor="let location of locations; index as i" >
+            <span (click)="goToEdit(i)"> {{location.name}} </span>
+            <button mat-mini-fab color="primary"(click)="delete(i)">X</button>
+        </li>
+    </ul>
+</div>
+
+<app-locations-forms [action]="buttonName" (outLocation)="saveLocation($event)"></app-locations-forms>
