@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit{
   
   //Esto se puede hacer en el HTM [routerLink]="'/edit:id'"
   goToEdit(index: number){
-    this.router.navigate(['/edit', index]);
+    this.router.navigate(['/private/edit', index]);
   }
 
   delete(index: number){

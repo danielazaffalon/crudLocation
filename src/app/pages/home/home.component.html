@@ -1,13 +1,14 @@
 <app-header [title]="title"></app-header>
-<button mat-raised-button color="primary" [routerLink]="['/aboutus']"><mat-icon>bookmark</mat-icon>About Us</button>
+<button mat-raised-button color="primary" [routerLink]="['/private/aboutus']"><mat-icon>bookmark</mat-icon>About Us</button>
 <h2>Locations</h2>
 
 <div>
     <ul>
         <li *ngFor="let location of locations; index as i" >
             <!-- <span (click)="goToEdit(i)"> {{location.name}} </span> -->
-            <button mat-raised-button color="primary" (click)="goToEdit(i)">{{location.name}}</button>
-            <button mat-mini-fab color="primary"(click)="delete(i)">X</button>
+            {{location.name}}
+            <mat-icon fontIcon="edit" (click)="goToEdit(i)"></mat-icon>
+            <mat-icon fontIcon="delete_forever" (click)="delete(i)"></mat-icon>
         </li>
     </ul>
 </div>

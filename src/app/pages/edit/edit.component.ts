@@ -38,6 +38,6 @@ export class EditComponent implements OnInit{
 
   editLocation(l: ILocations){
     this.locationService.editLocation(this.index,l);
-    this.route.navigate(['/home']);
+    this.route.navigate(['/private/home']);
   }
 }
