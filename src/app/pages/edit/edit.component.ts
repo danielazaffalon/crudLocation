@@ -21,7 +21,7 @@ export class EditComponent implements OnInit{
   location!: ILocations;
 
   buttonName = 'Edit';
-  index!: number;
+  // index!: string;
 
   ngOnInit(): void {
     // this.activateRoute.params.subscribe(params =>{
@@ -30,14 +30,15 @@ export class EditComponent implements OnInit{
     //   console.log(location);
     // });
     
-    const id = Number(this.activateRoute.snapshot.paramMap.get('id'));
-    this.index = id;
-    this.location = this.locationService.getLocationByIndex(id);
-    console.log(this.location);
+    const id = this.activateRoute.snapshot.paramMap.get('id')!;
+    // this.index = id;
+    this.locationService.getLocationByIndex(id).subscribe(location =>{
+      this.location = location;
+    });
   }
 
-  editLocation(l: ILocations){
-    this.locationService.editLocation(this.index,l);
+  editLocation(location: ILocations){
+    this.locationService.updateLocation(location);
     this.route.navigate(['/private/home']);
   }
 }

@@ -7,8 +7,8 @@
         <li *ngFor="let location of locations; index as i" >
             <!-- <span (click)="goToEdit(i)"> {{location.name}} </span> -->
             {{location.name}}
-            <mat-icon fontIcon="edit" (click)="goToEdit(i)"></mat-icon>
-            <mat-icon fontIcon="delete_forever" (click)="delete(i)"></mat-icon>
+            <mat-icon fontIcon="edit" (click)="goToEdit(location.id!)"></mat-icon>
+            <mat-icon fontIcon="delete_forever" (click)="delete(location.id!)"></mat-icon>
         </li>
     </ul>
 </div>

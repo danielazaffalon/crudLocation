@@ -38,18 +38,22 @@ export class LocationsFormsComponent {
   }
   
   ngOnInit() {
-    console.log('Input:',this.location);
     this.fillForm(this.location!);
   }
 
-  fillForm(l: ILocations){
+  ngOnChanges(changes: any){
+    if(changes.location)
+      this.fillForm(changes.location.currentValue!);
+  }
+
+  fillForm(location: ILocations){
     // this.locationsForm.controls['name'].setValue(l.name);
     this.locationsForm.patchValue({
-      name:l?.name??'',
-      description:l?.description??'',
-      lat:l?.lat??'',
-      lon:l?.lon??'',
-      visible:l?.visible??''
+      name:location?.name??'',
+      description:location?.description??'',
+      lat:location?.lat??'',
+      lon:location?.lon??'',
+      visible:location?.visible??''
     });
   }
 
@@ -66,6 +70,7 @@ export class LocationsFormsComponent {
   outputLocation(){
     if(this.locationsForm.valid){
       const l: ILocations = {
+        id: this.location?.id,
         name: this.locationsForm.get('name')?.value,
         description: this.locationsForm.get('description')?.value,
         lat: this.locationsForm.get('lat')?.value,
@@ -75,7 +80,7 @@ export class LocationsFormsComponent {
       this.outLocation.emit(l);
     }
     else {
-      console.log('INVALID!')
+      console.log('INVALID FORM!')
     }
     
   }

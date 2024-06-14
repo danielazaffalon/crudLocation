@@ -35,22 +35,23 @@ export class HomeComponent implements OnInit{
   }
 
   getLocations(){
-    this.locations = this.locationService.getLocations();
+    this.locationService.getLocations().subscribe(locations => {
+      this.locations = locations;
+    });
   }
 
-  saveLocation(l: ILocations){
-    console.log();
-    this.locationService.setLocation(l);
+  saveLocation(location: ILocations){
+    this.locationService.addLocation(location);
     this.getLocations();
   }
   
   //Esto se puede hacer en el HTM [routerLink]="'/edit:id'"
-  goToEdit(index: number){
-    this.router.navigate(['/private/edit', index]);
+  goToEdit(id: string){
+    this.router.navigate(['/private/edit', id]);
   }
 
-  delete(index: number){
-    this.locationService.deleteItem(index);
+  delete(id: string){
+    this.locationService.deleteLocation(id);
     this.getLocations();
   }
 }
